@@ -71,15 +71,20 @@
       let formData = new FormData();
       formData.append("file", fileInput);
 
-      // change this URL later to your Render backend API
+      // ⚡ Make sure this URL points to your FastAPI backend
       let response = await fetch("http://localhost:8000/predict", {
         method: "POST",
         body: formData
       });
 
       let data = await response.json();
+      console.log(data); // debug log
+
+      // ✅ Show class name, index, and confidence
       document.getElementById("result").innerText =
-        "Prediction: " + data.prediction + " (Confidence: " + data.confidence.toFixed(2) + ")";
+        "Prediction: " + data.class_name +
+        " (Class: " + data.prediction +
+        ", Confidence: " + data.confidence.toFixed(2) + ")";
     }
   </script>
 </body>
