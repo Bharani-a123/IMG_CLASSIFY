@@ -4,3 +4,4 @@ tensorflow
 pillow
 huggingface_hub
 python-multipart
+streamlit
